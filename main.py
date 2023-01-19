@@ -1,4 +1,5 @@
 import requests
+from dotenv import load_dotenv
 import os
 from urllib.parse import urlparse
 import os.path
@@ -13,19 +14,10 @@ url = "https://dvmn.org/media/HST-SM4.jpeg"
 def download_image(url, filepath, params=None):
     response = requests.get(url, params=params)
     response.raise_for_status()
-    os.makedirs(dirname, exist_ok=True)
 
     with open(filepath, 'wb') as file:
         file.write(response.content)
-def fetch_spacex_images():
-    url = 'https://api.spacexdata.com/v5/launches/5eb87d47ffd86e000604b38a'
-    response = requests.get(url)
-    response.raise_for_status()
-    requests.exceptions.HTTPError
-    links = (response.json()['links']['flickr']["original"])
-    for  number, link in enumerate(links):
-        file_path = f"images/{number}spacex.jpg"
-        download_image(link, file_path)
+
 def fetch_nasa_apod(api_key):
     url = "https://api.nasa.gov/planetary/apod"
     payload = {
@@ -59,8 +51,9 @@ def fetch_nasa_epic(api_key):
         filepath = os.path.join("images", f"{number}nasa_epic.png")
         download_image(image_url, filepath, params=payload)
 if __name__=="__main__":
-    api_key = "W702mdYN3UlQOaM83AF2WRaS6YIHa8QVxNH5E1j1"
-    fetch_spacex_images()
+    os.makedirs(dirname, exist_ok=True)
+    load_dotenv()
+    api_key = os.getenv("API_KEY")
     fetch_nasa_apod(api_key)
     get_extension("https://example.com/txt/hello%20world.txt?v=9#python")
     fetch_nasa_epic(api_key)
