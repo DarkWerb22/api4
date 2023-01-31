@@ -6,5 +6,6 @@ if __name__=="__main__":
     tg_token = os.getenv("TG_BOT_TOKEN")
     chat_id = os.getenv("TG_CHAT_ID")
     bot = telegram.Bot(token=tg_token)
-    print(bot.get_me())
-    bot.send_message(chat_id, "Hello World")
+    photo_path = "images/1nasa_epic.png"
+    with open(photo_path, 'rb') as photo:
+        bot.send_photo(chat_id, photo=photo)
