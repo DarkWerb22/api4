@@ -25,8 +25,8 @@ SPACEX_LAUNCH_ID=ваш айди
 pip install -r requirements.txt
 ```
 ### Как использовать
-- Для загрузки изображений NASA запустите `fetch_nasa.py`
-- Для загрузки изображений SPACEX запустите `fetch_spacex.py`
+- Для загрузки изображений NASA запустите `fetch_nasa_apod.py`
+- Для загрузки изображений SPACEX запустите `fetch_spacex_images.py`
 - Для постинга изображений в телеграмм запустите скрипт `main.py`
 ### Цель проекта
 
