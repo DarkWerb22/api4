@@ -1,11 +1,13 @@
-from main import download_image, get_extension
+from tools import download_image, get_extension
 import os
 import requests
 from dotenv import load_dotenv
-def fetch_nasa_apod(api_key):
+
+
+def fetch_nasa_apod(api_key, photo_count):
     url = "https://api.nasa.gov/planetary/apod"
     payload = {
-    "count": 30,
+    "count": photo_count,
     "api_key": api_key,
     }
     response = requests.get(url, params=payload)
@@ -21,4 +23,5 @@ if __name__=="__main__":
     load_dotenv()
     os.makedirs("images", exist_ok=True)
     api_key = os.getenv("NASA_API_KEY")
+    photo_count = os.getenv("PHOTO_COUNT", 20)
     fetch_nasa_apod(api_key)

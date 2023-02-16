@@ -12,7 +12,7 @@ if __name__=="__main__":
     sending_delay = os.getenv("SENDING_DELAY", "14400")
     while True:
         random_photo = random.choice(files_in_dir)
-        photo_path = f"images/{random_photo}"
+        photo_path = os.path.join("images", f"{random_photo}")
         with open(photo_path, 'rb') as photo:
             bot.send_photo(chat_id, photo=photo)
         sleep(int(sending_delay))

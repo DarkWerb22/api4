@@ -1,8 +1,10 @@
-from main import download_image, get_extension
+from tools import download_image, get_extension
 import requests
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+
+
 def fetch_nasa_epic(api_key):
     url = "https://api.nasa.gov/EPIC/api/natural/images"
     payload = {
