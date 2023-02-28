@@ -22,6 +22,6 @@ def fetch_nasa_apod(api_key, photo_count):
 if __name__=="__main__":
     load_dotenv()
     os.makedirs("images", exist_ok=True)
-    api_key = os.getenv("NASA_API_KEY")
+    api_key = os.environ["NASA_API_KEY"]
     photo_count = os.getenv("PHOTO_COUNT", 20)
     fetch_nasa_apod(api_key)
