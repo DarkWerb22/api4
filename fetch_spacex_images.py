@@ -1,6 +1,8 @@
-import requests
 import os
+
+import requests
 from dotenv import load_dotenv
+
 from tools import download_image
 
 
@@ -12,6 +14,7 @@ def fetch_spacex_images(launch_id):
     for  number, link in enumerate(links):
         file_path = os.path.join("images", f"{number}spacex.jpg")
         download_image(link, file_path)
+
 
 if __name__=="__main__":
     os.makedirs("images", exist_ok=True)

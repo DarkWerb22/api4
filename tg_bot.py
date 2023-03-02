@@ -1,8 +1,9 @@
+import os
+import random
+from time import sleep
+
 import telegram
 from dotenv import load_dotenv
-from time import sleep
-import random
-import os
 
 
 if __name__=="__main__":

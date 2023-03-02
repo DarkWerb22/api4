@@ -1,7 +1,9 @@
-from tools import download_image, get_extension
 import os
+
 import requests
 from dotenv import load_dotenv
+
+from tools import download_image, get_extension
 
 
 def fetch_nasa_apod(api_key, photo_count):
@@ -18,6 +20,7 @@ def fetch_nasa_apod(api_key, photo_count):
         image_url = picture['url']
         filepath = os.path.join("images", f"{number}nasa{get_extension(image_url)}")
         download_image(image_url, filepath)
+
 
 if __name__=="__main__":
     load_dotenv()
