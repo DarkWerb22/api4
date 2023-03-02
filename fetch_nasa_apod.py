@@ -24,4 +24,4 @@ if __name__=="__main__":
     os.makedirs("images", exist_ok=True)
     api_key = os.environ["NASA_API_KEY"]
     photo_count = os.getenv("PHOTO_COUNT", 20)
-    fetch_nasa_apod(api_key)
+    fetch_nasa_apod(api_key, photo_count)
