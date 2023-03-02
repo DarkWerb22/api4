@@ -14,4 +14,5 @@ def download_image(url, filepath, params=None):
 
 def get_extension(url):
     parsed_url = urlparse(url)
-    return os.path.splitext(parsed_url.path)[1]
+    _, extension = os.path.splitext(parsed_url.path)
+    return extension
