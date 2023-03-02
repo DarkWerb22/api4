@@ -20,5 +20,5 @@ if __name__=="__main__":
                 bot.send_photo(chat_id, photo=photo)
             sleep(int(sending_delay))
         except telegram.error.NetworkError:
-            print("Ошибка подлкючения телеграм")
+            print("Ошибка подключения телеграм")
             sleep(15)
